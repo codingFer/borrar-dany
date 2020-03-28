@@ -3,7 +3,7 @@ class arbolBinario:
     izq=None
     der=None
     indice=0
-    miLista=None
+    miLista= []
 
     def init(self):
         raiz = None
@@ -17,8 +17,9 @@ class arbolBinario:
         res=-1
         i=0
         encontro=False
-        while encontro==False:
-            if numero<=miLista[i]:
+        while i < len(self.miLista) and encontro==False:
+            
+            if numero <= self.miLista[i]:
                 res=i
                 encontro=True
             i=i+1
@@ -45,9 +46,9 @@ class arbolBinario:
                     der.raiz = dato
                     print("Se inserto el dato: ",dato)
                 else:
-                    nivel = queNivel(dato)
+                    nivel = self.queNivel(dato)
                     ini = ini - (2**nivel)
-                    estaIzq = estaEnLaIzq(nivel,dato)
+                    estaIzq = self.estaEnLaIzq(nivel,dato)
                     if estaIzq:
                         izq.agregarChido(izq,dato,ini)
                     else:
@@ -78,7 +79,7 @@ class arbolBinario:
 
     def estaEnLaIzq(self, niv, dat):
         resp = False
-        medio = (miLista[niv]+miLista[niv-1])/2
+        medio = (self.miLista[niv] + self.miLista[niv-1])/2
         if dat<=medio:
             resp = True
         return resp
@@ -90,6 +91,9 @@ class arbolBinario:
 def mostrar():
     arbolito = arbolBinario()
     arbolito.agregar("Hola")
+    arbolito.agregar("como")
+    arbolito.agregar("estas")
+    arbolito.agregar("ella")
     tamanio = arbolito.getIndice()
     print(tamanio)
 
