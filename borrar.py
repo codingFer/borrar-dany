@@ -69,7 +69,7 @@ class arbolBinario:
             der.raiz = dato
             print("Se inserto el dato: ",dato)
         else:
-            nivel = queNivel(dato)
+            nivel = queNivel(ini)
             ini = ini - (2**nivel)
             estaIzq = estaEnLaIzq(nivel,dato)
             if estaIzq:
